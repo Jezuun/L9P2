@@ -8,7 +8,6 @@
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
  */
-
 public class CommandWords
 {
     // a constant array that holds all valid command words
@@ -39,13 +38,15 @@ public class CommandWords
     }
 
     /**
-     * Print all valid commands to System.out.
+     * Return all valid commands as a single string, instead of printing them.
+     * @return A string containing all valid commands separated by spaces.
      */
-    public void showAll() 
+    public String showAll() 
     {
-        for(String command: validCommands) {
-            System.out.print(command + "  ");
+        StringBuilder commandList = new StringBuilder();
+        for (String command : validCommands) {
+            commandList.append(command).append("  "); // Adding extra space for separation
         }
-        System.out.println();
+        return commandList.toString().trim(); // Return the string without trailing spaces
     }
 }

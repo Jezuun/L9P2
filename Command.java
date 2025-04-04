@@ -15,6 +15,11 @@
  * 
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
+ * 19. Applying MVC to your text-based adventure game would involve organizing 
+ * the game's data (like player stats and inventory)
+ * as the Model, the game's textual outputs as the View, 
+ * and the logic that processes user commands as the Controller. 
+ * This separation enhances code maintainability and scalability.
  */
 
 public class Command
