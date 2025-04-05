@@ -11,25 +11,42 @@ import java.util.HashMap;
  * connected to other rooms via exits.  For each existing exit, the room 
  * stores a reference to the neighboring room.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author  
+ * @version 
  */
 
 public class Room 
 {
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
-    private String Item;
+    private Item item;
+
     /**
-     * Create a room described "description". Initially, it has
-     * no exits. "description" is something like "a kitchen" or
-     * "an open court yard".
-     * @param description The room's description.
+     * Create a room described by "description", with no item.
      */
     public Room(String description) 
     {
         this.description = description;
-        exits = new HashMap<>();
+        this.exits = new HashMap<>();
+        this.item = null;
+    }
+
+    /**
+     * Create a room described by "description", with an item.
+     */
+    public Room(String description, Item item) 
+    {
+        this.description = description;
+        this.exits = new HashMap<>();
+        this.item = item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public Item getItem() {
+        return item;
     }
 
     /**
@@ -43,8 +60,7 @@ public class Room
     }
 
     /**
-     * @return The short description of the room
-     * (the one that was defined in the constructor).
+     * @return The short description of the room.
      */
     public String getShortDescription()
     {
@@ -52,20 +68,15 @@ public class Room
     }
 
     /**
-     * Return a description of the room in the form:
-     *     You are in the kitchen.
-     *     Exits: north west
-     * @return A long description of this room
+     * Return a long description of this room, including item info and exits.
      */
-    public String getLongDescription()
-    {
-        return "You are " + description + ".\n" + getExitString();
+    public String getLongDescription() {
+        String itemString = (item != null) ? "You see " + item + "." : "There is no item here.";
+        return "You are " + description + ".\n" + getExitString() + "\n" + itemString;
     }
 
     /**
-     * Return a string describing the room's exits, for example
-     * "Exits: north west".
-     * @return Details of the room's exits.
+     * Return a string describing the room's exits, for example "Exits: north west".
      */
     private String getExitString()
     {
@@ -80,8 +91,6 @@ public class Room
     /**
      * Return the room that is reached if we go from this room in direction
      * "direction". If there is no room in that direction, return null.
-     * @param direction The exit's direction.
-     * @return The room in the given direction.
      */
     public Room getExit(String direction) 
     {

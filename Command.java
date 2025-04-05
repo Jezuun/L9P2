@@ -20,6 +20,13 @@
  * as the Model, the game's textual outputs as the View, 
  * and the logic that processes user commands as the Controller. 
  * This separation enhances code maintainability and scalability.
+ * 
+ * 21. The Item class should produce the string describing the item because 
+ * it contains the item's data and knows how to represent itself. 
+ * The Room class should print this information since it contains the item and 
+ * is responsible for describing everything present in the room.
+ * 
+ * 
  */
 
 public class Command
