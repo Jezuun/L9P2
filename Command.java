@@ -26,7 +26,16 @@
  * The Room class should print this information since it contains the item and 
  * is responsible for describing everything present in the room.
  * 
- * 
+ * 24. Test Case 1: Normal back Usage
+ * "You go back to the outside the main entrance of the university."
+ * Test Case 2: Incorrect back Usage (Second Word)
+ * "I don't know what you mean..."
+ * Test Case 3: back at the Starting Point
+ * "You can't go back! This is your starting point."
+ * Test Case 4: back After Moving
+ * "You go back to the outside the main entrance of the university."
+ * "You can't go back! This is your starting point."
+ * .25. it won't work when you type back twice
  */
 
 public class Command
