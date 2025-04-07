@@ -12,7 +12,7 @@ public class CommandWords
 {
     // a constant array that holds all valid command words
     private static final String[] validCommands = {
-        "go", "quit", "help"
+        "go", "quit", "help", "items"  // Added "items" here
     };
 
     /**
@@ -50,3 +50,4 @@ public class CommandWords
         return commandList.toString().trim(); // Return the string without trailing spaces
     }
 }
+

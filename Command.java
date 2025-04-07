@@ -36,59 +36,45 @@
  * "You go back to the outside the main entrance of the university."
  * "You can't go back! This is your starting point."
  * .25. it won't work when you type back twice
+ * 
+ * Valid Command Recognition: Ensure commands like go, help, quit, and look work.
+ * 
+ * Invalid Command Recognition: Check that unrecognized commands show an error message.
+ * Room Navigation: Test that go <direction> moves the player to the correct room
+ * or shows an error if the direction is invalid.
+ * Look Command: Ensure look displays the current room’s description.
+ * Quit Command: Verify that quit exits the game properly.
+ * Help Command: Ensure help or assist shows the list of available commands.
+ * Game Start: Confirm the game prints the correct welcome message and room description.
+ * Command Parsing: Ensure commands with missing or extra parameters are handled (e.g., go vs go north).
+ * Edge Cases: Test empty input and invalid directions (e.g., go up).
+ * 
  */
 
-public class Command
-{
+public class Command {
     private String commandWord;
     private String secondWord;
 
-    /**
-     * Create a command object. First and second word must be supplied, but
-     * either one (or both) can be null.
-     * @param firstWord The first word of the command. Null if the command
-     *                  was not recognised.
-     * @param secondWord The second word of the command.
-     */
-    public Command(String firstWord, String secondWord)
-    {
-        commandWord = firstWord;
+    public Command(String commandWord, String secondWord) {
+        this.commandWord = commandWord;
         this.secondWord = secondWord;
     }
 
-    /**
-     * Return the command word (the first word) of this command. If the
-     * command was not understood, the result is null.
-     * @return The command word.
-     */
-    public String getCommandWord()
-    {
+    public String getCommandWord() {
         return commandWord;
     }
 
-    /**
-     * @return The second word of this command. Returns null if there was no
-     * second word.
-     */
-    public String getSecondWord()
-    {
+    public String getSecondWord() {
         return secondWord;
     }
 
-    /**
-     * @return true if this command was not understood.
-     */
-    public boolean isUnknown()
-    {
-        return (commandWord == null);
-    }
-
-    /**
-     * @return true if the command has a second word.
-     */
-    public boolean hasSecondWord()
-    {
+    public boolean hasSecondWord() {
         return (secondWord != null);
     }
+
+    public boolean isUnknown() {
+        return commandWord == null;
+    }
 }
+
 
